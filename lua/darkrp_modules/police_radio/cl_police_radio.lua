@@ -1,5 +1,3 @@
-#NoSimplerr#
-
 policeRadio = {}
 --[[Config Start]]--
 policeRadio.setTime = 30 //Delay between Radio Quotes
