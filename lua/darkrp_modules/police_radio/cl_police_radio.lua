@@ -1,6 +1,7 @@
 policeRadio = {}
+
 --[[Config Start]]--
-policeRadio.setTime = 30 //Delay between Radio Quotes
+policeRadio.setTime = 15 //Delay (In Seconds) between Radio Quotes. Can't be lower than 5.
 policeRadio.cops = { //Who can hear the Police Radio
 "Civil Protection", 
 "Civil Protection Chief"
@@ -94,7 +95,11 @@ policeRadio.quotes = { //Actual quotes
 --[[Config End]]--
 
 function randomPoliceRadioSounds()
-    if table.HasValue(policeRadio.cops, team.GetName(LocalPlayer():Team())) then
+    if policeRadio.setTime < 5 then
+	    policeRadio.setTime = 5
+	end
+	
+	if table.HasValue(policeRadio.cops, team.GetName(LocalPlayer():Team())) then
         randomQuoteChoice = table.Random(policeRadio.quotes)
 		randomTurnChoice = table.Random(policeRadio.turn)
 		
